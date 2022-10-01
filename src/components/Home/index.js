@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import GridButton from "./GridButton";
-
-const list = ["el1", "el2", "el3", "el4"];
+import useSounds from "../../hooks/useSounds";
 
 const Home = () => {
+  const { buttonsList } = useSounds();
   return (
     <Wrapper>
       <Grid>
-        {list.map((el) => {
-          return <GridButton key={el}>{el}</GridButton>;
+        {buttonsList.map(({ soundPlay }, index) => {
+          return <GridButton key={index} soundPlay={soundPlay} />;
         })}
       </Grid>
     </Wrapper>

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const GridButton = ({ isPlayed = false }) => {
-  return <Wrapper isPlayed={isPlayed}></Wrapper>;
+const GridButton = ({ isPlayed = false, soundPlay }) => {
+  return <Wrapper isPlayed={isPlayed} onClick={soundPlay}></Wrapper>;
 };
 
 export default GridButton;
@@ -14,6 +14,7 @@ const Wrapper = styled.div`
     rgba(152, 221, 202, 1) 100%
   );
   position: relative;
+  overflow: hidden;
   &::before {
     position: absolute;
     content: "";
