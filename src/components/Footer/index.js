@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const Footer = () => {
+const Footer = ({ isLight, handleToggleTheme }) => {
   return (
     <Wrapper>
-      <p>The footer</p>
+      <button onClick={handleToggleTheme}>
+        Switch to {isLight ? "dark" : "light"} theme
+      </button>
     </Wrapper>
   );
 };
@@ -16,5 +18,5 @@ const Wrapper = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: solid 1px;
+  background-color: ${(props) => props.theme.mainColor};
 `;

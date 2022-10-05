@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
-const Header = ({ isLight, handleToggleTheme }) => {
+const Header = () => {
   const location = useLocation();
   return (
     <Wrapper>
@@ -15,9 +15,6 @@ const Header = ({ isLight, handleToggleTheme }) => {
           <MenuEL isCurrentPage={location.pathname === "/about"}>About</MenuEL>
         </Link>
       </nav>
-      <button onClick={handleToggleTheme}>
-        Switch to {isLight ? "dark" : "light"} theme
-      </button>
     </Wrapper>
   );
 };
@@ -30,17 +27,17 @@ const Wrapper = styled.header`
   justify-content: space-between;
   padding: 0px 24px;
   align-items: center;
-  border-bottom: solid 1px;
   & a {
     text-decoration: none;
     color: inherit;
   }
   & a:first-child {
-    margin-right: 12px;
+    margin-right: 16px;
   }
 `;
 
 const MenuEL = styled.span`
+  font-size: 18px;
   padding-bottom: 2px;
   border-bottom: solid 2px
     ${(props) => (props.isCurrentPage ? "" : "transparent")};

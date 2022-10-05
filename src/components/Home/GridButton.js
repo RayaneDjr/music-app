@@ -1,8 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
-const GridButton = ({ isPlayed = false, soundPlay }) => {
-  return <Wrapper isPlayed={isPlayed} onClick={soundPlay}></Wrapper>;
+const GridButton = ({
+  isPlayed = false,
+  soundPlay,
+  id,
+  handleSampleChange,
+}) => {
+  return (
+    <Wrapper isPlayed={isPlayed} onClick={soundPlay}>
+      <label onClick={(e) => e.stopPropagation()} htmlFor={id}>
+        ♬
+      </label>
+      <input
+        onClick={(e) => e.stopPropagation()}
+        id={id}
+        type='file'
+        onChange={handleSampleChange}
+      />
+    </Wrapper>
+  );
 };
 
 export default GridButton;
@@ -39,5 +56,14 @@ const Wrapper = styled.div`
       rgba(255, 170, 167, 1) 30%,
       rgba(255, 230, 213, 1) 100%
     );
+  }
+  & input {
+    display: none;
+  }
+  & label {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    font-size: 24px;
   }
 `;
